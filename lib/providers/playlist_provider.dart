@@ -144,12 +144,9 @@ class PlaylistProvider extends ChangeNotifier {
   set currentSongIndex(int? index) {
     _currentSongIndex = index;
 
-    if (_currentSongIndex != null) {
-      const AlertDialog(
-        title: Text("No Song to play!"),
-      );
+    if (_currentSongIndex != null && !_isPlaying) {
       play();
-    } else {}
+    }
     notifyListeners();
   }
 
